@@ -43,7 +43,7 @@ func (m *MockNotificationRepository) Delete(ctx context.Context) error {
 func TestCreateNotification(t *testing.T) {
 	mockRepo := new(MockNotificationRepository)
 	req := &requests.StaffNotificationRequest{
-		TableID: uuid.MustParse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+		TableID: uuid.New(),
 	}
 
 	mockRepo.On("Create", context.Background(), req).Return(nil)
@@ -58,8 +58,8 @@ func TestShowListOfNotification(t *testing.T) {
 	mockRepo := new(MockNotificationRepository)
 
 	mockNotification := &models.StaffNotification{
-		ID:      uuid.MustParse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-		TableID: uuid.MustParse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+		ID:      uuid.New(),
+		TableID: uuid.New(),
 	}
 
 	mockRepo.On("FindAll", context.Background()).Return([]*models.StaffNotification{mockNotification}, nil)
@@ -74,7 +74,7 @@ func TestShowListOfNotification(t *testing.T) {
 func TestUpdateNotification(t *testing.T) {
 	mockRepo := new(MockNotificationRepository)
 	req := &requests.StaffNotificationRequest{
-		TableID: uuid.MustParse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+		TableID: uuid.New(),
 	}
 
 	mockRepo.On("Update", context.Background(), req).Return(nil)
@@ -100,8 +100,8 @@ func TestShowNotificationByID(t *testing.T) {
 	mockRepo := new(MockNotificationRepository)
 
 	mockNotification := &models.StaffNotification{
-		ID:      uuid.MustParse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-		TableID: uuid.MustParse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+		ID:      uuid.New(),
+		TableID: uuid.New(),
 	}
 
 	mockRepo.On("FindByID", context.Background()).Return(mockNotification, nil)
